@@ -47,8 +47,6 @@ public class GDTActionCordovaPlugin extends CordovaPlugin {
             return this.setUserUniqueId(args, callbackContext);
         } else if (action.equals("logAction")) {
             return this.logAction(args, callbackContext);
-        } else if (action.equals("onStartApp")) {
-            return this.onStartApp(args, callbackContext);
         } else if (action.equals("onRegister")) {
             return this.onRegister(args, callbackContext);
         } else if (action.equals("onLogin")) {
