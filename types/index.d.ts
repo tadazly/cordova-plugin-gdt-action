@@ -1,4 +1,4 @@
-declare namespace TapSDK {
+declare namespace GDTAction {
     /** 行为渠道 */
     enum ChannelType {
         CHANNEL_UNKNOWN = 'CHANNEL_UNKNOWN',
