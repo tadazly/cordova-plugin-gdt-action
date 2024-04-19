@@ -49,7 +49,7 @@ module.exports = {
     },
 
     init(param) {
-        return this.execAsync('init', [param]);
+        return this.execAsync('init', [param || {}]);
     },
 
     setUserUniqueId(uid) {
@@ -57,7 +57,7 @@ module.exports = {
     },
 
     logAction(actionType, actionParam) {
-        return this.execAsync('logAction', [actionType, actionParam]);
+        return this.execAsync('logAction', [actionType, actionParam || {}]);
     },
 
     onStartApp(isOldUser) {
