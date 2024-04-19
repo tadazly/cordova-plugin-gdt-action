@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="cordova-plugin-gdt-action" version="1.0.0">
+    <name>GDTActionCordovaPlugin</name>
+    <description>GDT Action Cordova Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,gdt,gdt-action,tencent,sdk</keywords>
+    <repo>https://github.com/tadazly/cordova-plugin-gdt-action.git</repo>
+
+    <preference name="GDT_USER_ACTION_SET_ID" />
+    <preference name="GDT_APP_SECRET_KEY" />
+
+    <js-module src="www/GDTAction.js" name="GDTAction">
+        <clobbers target="GDTAction" />
+        <clobbers target="cordova.plugins.GDTAction" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="GDTAction">
+                <param name="android-package" value="com.tadazly.gdt.GDTActionCordovaPlugin" />
+            </feature>
+            <preference name="GDT_USER_ACTION_SET_ID" value="$GDT_USER_ACTION_SET_ID" />
+            <preference name="GDT_APP_SECRET_KEY" value="$GDT_APP_SECRET_KEY" />
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.INTERNET" />
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file>
+
+        <source-file src="src/android/GDTActionCordovaPlugin.java" target-dir="src/com/tadazly/gdt" />
+        <source-file src="src/android/libs/GDTActionSDK.min.1.8.9.aar" target-dir="libs" />
+        <framework src="src/android/gdt-action-build.gradle" custom="true" type="gradleReference" />
+    </platform>
+</plugin>
