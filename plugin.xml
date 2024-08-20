@@ -36,4 +36,24 @@
         <source-file src="src/android/libs/GDTActionSDK.min.1.8.9.aar" target-dir="libs" />
         <framework src="src/android/gdt-action-build.gradle" custom="true" type="gradleReference" />
     </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="GDTAction">
+                <param name="ios-package" value="GDTActionCordovaPlugin"/>
+            </feature>
+            <preference name="GDT_USER_ACTION_SET_ID" value="$GDT_USER_ACTION_SET_ID" />
+            <preference name="GDT_APP_SECRET_KEY" value="$GDT_APP_SECRET_KEY" />
+        </config-file>
+
+        <!-- Plugin source code -->
+        <header-file src="src/ios/GDTActionCordovaPlugin.h" />
+        <source-file src="src/ios/GDTActionCordovaPlugin.m" />
+
+        <!-- SDK Official -->
+        <header-file src="src/ios/libs/GDTAction.h" />
+        <header-file src="src/ios/libs/GDTAction+convenience.h" />
+        <source-file src="src/ios/libs/libGDTActionSDK.a" framework="true" />
+    </platform>
 </plugin>
