@@ -1,6 +1,6 @@
 #import "GDTActionCordovaPlugin.h"
 #import "GDTAction.h"
-#import "GDTAction_convenience.h"
+#import "GDTAction+convenience.h"
 
 @implementation GDTActionCordovaPlugin
 
@@ -9,8 +9,8 @@
     NSObject *obj = [command.arguments objectAtIndex:0];
     NSString *userActionSetID = [obj valueForKey:@"userActionSetID"];
     NSString *appSecretKey = [obj valueForKey:@"appSecretKey"];
-    if (!userActionSetID) userActionSetID = [[self.commandDelegate settings] objectForKey:@"GDT_USER_ACTION_SET_ID"];
-    if (!appSecretKey) appSecretKey = [[self.commandDelegate settings] objectForKey:@"GDT_APP_SECRET_KEY"];
+    if (!userActionSetID) userActionSetID = [[self.commandDelegate settings] objectForKey:@"gdt_user_action_set_id"];
+    if (!appSecretKey) appSecretKey = [[self.commandDelegate settings] objectForKey:@"gdt_app_secret_key"];
 
     [GDTAction init:userActionSetID secretKey:appSecretKey];
     [GDTAction start];
